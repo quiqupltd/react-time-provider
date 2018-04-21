@@ -8,6 +8,7 @@ theme: readthedocs
 pages:
 - Introduction: index.md
 - Usage: usage.md
+- Contributing: contributing.md
 - About:
   - Quiqup: quiqup.md
   - License: license.md

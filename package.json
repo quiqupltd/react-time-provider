@@ -1,6 +1,6 @@
 {
   "name": "@quiqupltd/react-time-provider",
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1",
   "description": "A configurable timer utility to pass time props to your components via Context API at a set interval.",
   "author": {
     "name": "Quiqup",
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:transitive-bullshit/react-modern-library-boilerplate.git"
+    "url": "git@github.com:QuiqUpLTD/react-time-provider.git"
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",

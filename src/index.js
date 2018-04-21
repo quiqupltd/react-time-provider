@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const { Provider, Consumer } = createContext()
 
-class TimeProvider extends Component {
+export class TimeProvider extends Component {
   static propTypes = {
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
     now: PropTypes.number,
@@ -73,5 +73,5 @@ class TimeProvider extends Component {
   }
 }
 
-export const UIConsumer = Consumer
+export const TimeConsumer = Consumer
 export default TimeProvider
