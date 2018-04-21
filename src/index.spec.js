@@ -1,7 +1,6 @@
-import React, { Component, createContext } from 'react'
-import renderer from 'react-test-renderer'
-import { mount, unmount, shallow } from 'enzyme'
-import TimeProvider, { Context } from './index.js'
+import React from 'react'
+import { shallow } from 'enzyme'
+import TimeProvider from './index.js'
 
 describe('TimeProvider', () => {
   const now = new Date(Date.UTC('2018', '04', '10', '12', '00')).getTime()
@@ -22,19 +21,19 @@ describe('TimeProvider', () => {
 
   it('should create the timer in initialization', () => {
     expect(TimeProvider.prototype.timer).toBeUndefined()
-    const instance = shallow(<TimeProvider isTimerRunning={true} />).instance()
+    const instance = shallow(<TimeProvider isTimerRunning />).instance()
     expect(instance.timer).toBeDefined()
     expect(setInterval).toHaveBeenCalledTimes(1)
     expect(setInterval).toHaveBeenCalledWith(instance.tick, 1000)
   })
 
   it('should call setInterval on initialization if isTimerRunning is true', () => {
-    shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning={true} />)
+    shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning />)
     expect(setInterval).toHaveBeenCalledTimes(1)
   })
 
   it('should call setState once a second', done => {
-    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning={true} />)
+    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning />)
     const instance = wrapper.instance()
     const setStateSpy = jest.spyOn(instance, 'setState')
     jest.advanceTimersByTime(1000)
@@ -48,7 +47,7 @@ describe('TimeProvider', () => {
   it('should clear the timer if one is set on unmount', () => {
     const mockTimerValue = 12345
     setInterval.mockReturnValue(mockTimerValue)
-    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning={true} />)
+    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning />)
     const instance = wrapper.instance()
     const stopTimerSpy = jest.spyOn(instance, 'stopTimer')
     expect(instance.timer).toBeDefined()
@@ -59,7 +58,7 @@ describe('TimeProvider', () => {
   })
 
   it('should call clearInterval from stopTimer', () => {
-    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning={true} />)
+    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning />)
     const instance = wrapper.instance()
     expect(instance.timer).toBeDefined()
     instance.stopTimer()
@@ -77,7 +76,7 @@ describe('TimeProvider', () => {
   })
 
   it('should call stopTimer if isTimerRunning is set to false', () => {
-    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning={true} />)
+    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning />)
     const instance = wrapper.instance()
     const stopTimerSpy = jest.spyOn(instance, 'stopTimer')
 
@@ -93,7 +92,7 @@ describe('TimeProvider', () => {
   })
 
   it('should detect change in componentDidUpdate and start timer', () => {
-    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning={true} />)
+    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning />)
     const instance = wrapper.instance()
     instance.componentDidUpdate({ isTimerRunning: true })
     wrapper.update()
@@ -104,7 +103,7 @@ describe('TimeProvider', () => {
   it('should stop the timer if isTimerRunning is set to false', () => {
     const mockTimerValue = 12345
     setInterval.mockReturnValue(mockTimerValue)
-    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning={true} />)
+    const wrapper = shallow(<TimeProvider {...uiProviderDefaultProps} isTimerRunning />)
     const instance = wrapper.instance()
     expect(instance.timer).toBeDefined()
     wrapper.setProps({ isTimerRunning: false })

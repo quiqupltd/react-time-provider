@@ -1,6 +1,6 @@
 # React `TimeProvider` and `TimeConsumer`
 
-[![NPM](https://img.shields.io/npm/v/@quiqupltd/react-time-provider.svg)](https://www.npmjs.com/package/@quiqupltd/react-time-provider) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@quiqupltd/react-time-provider.svg)](https://www.npmjs.com/package/@quiqupltd/react-time-provider) [![Build Status](https://travis-ci.org/QuiqUpLTD/react-time-provider.svg?branch=master)](https://travis-ci.org/QuiqUpLTD/react-time-provider) [![Test Coverage](https://api.codeclimate.com/v1/badges/301c8cb1b6ac4cad774e/test_coverage)](https://codeclimate.com/github/QuiqUpLTD/react-time-provider/test_coverage) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > A configurable timer utility to pass time props to your components via Context API at a set interval.
 

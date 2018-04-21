@@ -1,6 +1,6 @@
 {
   "name": "@quiqupltd/react-time-provider",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.3",
   "description": "A configurable timer utility to pass time props to your components via Context API at a set interval.",
   "author": {
     "name": "Quiqup",
@@ -15,10 +15,13 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
+    "lint": "eslint src",
     "test": "jest src/ --coverage",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepublishOnly": "npm run build"
+    "precommit": "lint-staged",
+    "prepublishOnly": "yarn run build",
+    "prepush": "yarn run lint && yarn test"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.44",
@@ -38,12 +41,13 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-import": ">=2.8.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-node": ">=5.2.1",
     "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": ">=3.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-import": ">=2.8.0",
-    "eslint-plugin-node": ">=5.2.1",
-    "eslint-plugin-promise": ">=3.6.0",
     "husky": "^0.14.3",
     "jest": "^22.4.3",
     "lint-staged": "^7.0.4",
@@ -127,17 +131,22 @@
     "testRegex": "src/.*\\.spec\\.js$"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "jest/globals": true
+    },
     "extends": [
       "standard",
       "standard-react",
+      "plugin:jest/recommended",
       "prettier"
     ],
     "plugins": [
       "standard",
       "react",
+      "jest",
       "prettier"
     ]
   },
-  "peerDependencies": {
-  }
+  "peerDependencies": {}
 }
