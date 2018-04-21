@@ -1,0 +1,86 @@
+.wy-nav-content {
+  max-width: 1010px;
+}
+
+pre {
+  color: #f8f8f2 !important;
+  background-color: #23241f !important;
+}
+
+code.hljs {
+  position: relative;
+  overflow: hidden;
+}
+
+code.hljs .btn {
+  opacity: 0;
+  transition: opacity 333ms;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #cfcfcf;
+  border-radius: 0 0 0 5px;
+  box-shadow: none;
+  padding: 4px 6px;
+}
+
+code.hljs:hover .btn {
+  opacity: 1;
+  transition: opacity 333ms;
+}
+
+.success {
+  background: rgb(60, 227, 95) !important;
+}
+
+.info {
+  background: rgb(74, 199, 214) !important;
+}
+
+.warning {
+  background: rgb(255, 121, 0) !important;
+}
+
+.danger {
+  background: rgb(252, 69, 69) !important;
+}
+
+.toast {
+  padding: 10px 30px;
+  position: fixed;
+  width: auto;
+  line-height: 50px;
+  background: #3ce35f;
+  color: #fff;
+  bottom: 0;
+  right: 20px;
+  transform: translate(0, 100%);
+  animation: 2500ms toast ease-in-out forwards;
+  z-index: 120;
+}
+
+@keyframes toast {
+  0% {
+    transform: translate(0, 100%);
+    bottom: 0;
+    right: 20px;
+  }
+
+  7% {
+    transform: translate(0, 0);
+    bottom: 20px;
+    right: 20px;
+  }
+
+  90% {
+    transform: translate(0, 0);
+    bottom: 20px;
+    right: 20px;
+  }
+
+  100% {
+    transform: translate(120%, 0);
+    bottom: 20px;
+    right: 0;
+  }
+}

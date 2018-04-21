@@ -1,0 +1,143 @@
+{
+  "name": "@quiqupltd/react-time-provider",
+  "version": "0.0.1-beta.1",
+  "description": "A configurable timer utility to pass time props to your components via Context API at a set interval.",
+  "author": {
+    "name": "Quiqup",
+    "email": "dev@quiqup.com",
+    "url": "https://www.quiqup.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:transitive-bullshit/react-modern-library-boilerplate.git"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "scripts": {
+    "test": "jest src/ --coverage",
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
+    "@babel/plugin-transform-react-jsx": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "@babel/preset-react": "^7.0.0-beta.44",
+    "babel-core": "^7.0.0-0",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.3",
+    "codeclimate-test-reporter": "^0.5.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-import": ">=2.8.0",
+    "eslint-plugin-node": ">=5.2.1",
+    "eslint-plugin-promise": ">=3.6.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
+    "lint-staged": "^7.0.4",
+    "prettier": "^1.12.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-test-renderer": "^16.3.2",
+    "rollup": "^0.58.1",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-peer-deps-external": "^2.1.0",
+    "rollup-plugin-uglify": "^3.0.0",
+    "rollup-plugin-url": "^1.4.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "config": {
+    "entry": "src/index.js"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --config package.json --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "semi": false
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions"
+            ]
+          },
+          "modules": false
+        }
+      ],
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-react-jsx"
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "@babel/preset-env"
+          ],
+          "@babel/preset-react"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "text"
+    ],
+    "testRegex": "src/.*\\.spec\\.js$"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "standard-react",
+      "prettier"
+    ],
+    "plugins": [
+      "standard",
+      "react",
+      "prettier"
+    ]
+  },
+  "peerDependencies": {
+  }
+}

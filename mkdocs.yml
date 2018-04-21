@@ -1,0 +1,21 @@
+site_name: React TimeProvider
+site_url: http://react-time-provider.readthedocs.io/en/latest/
+repo_url: https://github.com/QuiqUpLTD/react-time-provider
+repo_name: 'GitHub'
+site_description: Configurable time provider and consumer React Component using Context API
+site_favicon: favicon.ico
+theme: readthedocs
+pages:
+- Introduction: index.md
+- Usage: usage.md
+- About:
+  - Quiqup: quiqup.md
+  - License: license.md
+extra_css:
+  - 'css/site.css'
+  - '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/monokai-sublime.min.css'
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js'
+  - 'https://www.workable.com/assets/embed.js'
+  - 'js/scripts.js'
+  - '//sidecar.gitter.im/dist/sidecar.v1.js'
