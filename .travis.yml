@@ -9,9 +9,14 @@ addons:
   code_climate:
     repo_token:
       secure: "Lo0J1sy9YsQ06EDu9AXGnksuvafojDZhg3B84bu6OKzHPIKfERWk0x4wrsU1hXSosrFD0uu9fOfzXritUUyXeQVaSnciIn8KdV5XdQ0Lcl4J8jwBkGhfRVL4AxGQ1isiDNGePxVl0wYbxqrnfd8IfmR+LZDAHakQw4eZcze7FpVjmXNMlrWMbIMtRb0ay8uaJ3qYDZIkuTL27phyjlQr7C2tZrXRJhbEH9iLwzwIWXCJt7BaJaosRBVE+wDZu1+g40hWIgvoashrQ9UgfnqFn8qXi7WTokJKz7UaK+u2aEn4KEnvgsF5YmIbSRYcsImK+LyB8YKes85Bk6PfnfY6wBZuO9+CSOB2iTfrchkH0DG9OQQBObezpVKn8cqj4fJFDinFsY/oTec4qILD3aDYJombWqHmhk3KsP5PJw8/xtguoVFvwBWP7gaZ1JDTPrELCgRXrDbto0YYAc3Zon/oKN8wDCGnqb/nPajOoemF8wmX6REztOj/XHhuCXolPP7Gw8chFcb6xe9PaiScNvfAiOYroq9/bB4UD72Tyxs5HbMpfJ9AqKp1MJKBvx3YbQyfFA/gyz4mB7+GPGGdvKgwEoUtYDewlGv1zkk8kcVd04zikJgMBErW4q+TSP0Sy0PNU4YJks6FD0SkJJGvaa/wQOKpgZxBeKiG2SQ+xC7j+pw="
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 after_script:
-  - codeclimate-test-reporter < coverage/**/lcov.info
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 notifications:
   slack:
     secure: "qtdEEislS28GQnAADGtYGa40/7beYhvja35w6a/P4VX/Xk4uTGPIUZgU+8uSaDyq30Y8zglZqzUk3trG04tm+azWz7bC0gKYqp37njnc6c2OuglGEzTsazoQMGXCJSosI0mINhr8j9HqyAs2wWG4W74T5QrXIjL2veehetSuMafoe4eErzBhHgPN+tGVcq0t7b+IbZDoGEza4AdgNGbwXCqFRwRQobKd4atT/omsLvr6biH2NDPICSGnfsVWRndaO0eb/urejCFdNgF3Bwn5MSjqqEqezC92CXabDoUdaIqRszd1xkkS7rlr6KU/wBRd1JR8xVkp3/NnSQ8d64227NxDGmq+0Tv9Y1wqG5pJPeTkQ7UNijagJFphNJWeSV23/3drVVsnZvbinNXRaCKyXJmLhKjxL3Mp7i/sDAF9JijR3+sJa6h4dJyzCixwSq4L4tZAMiRSMjWfdnGck+RvkfQWsRbqjAAiQSCGfKxMFsDtVeAgtHKUyP4DGPNJjqHwVzN64glOFymtts+psK7DLHhsRb6ofbGiVjcnVYwM03/crKm4eu8uRods4Y6Zbw3LYvxLKf4SZJzc0EuO6wgtgzSkf99p10e10geG8MUHsHAHWygAW2CdbrgfA53wlIQe5u/w9H+1ypHUqjBS7OF4I2tnBIeNcPlkj+nU1C1uIYk="
-    on_success: change
+    on_success: always
+    on_failure: always
