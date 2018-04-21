@@ -2,7 +2,7 @@
 ;((window.gitter = {}).chat = {}).options = {
   room: 'react-time-provider/Lobby',
 }
-var clipboard = new ClipboardJS('.btn')
+
 const toast = opts => {
   opts = Object.assign({ type: 'success', msg: '' }, opts)
   const toast = document.createElement('div')
@@ -16,7 +16,7 @@ const toast = opts => {
   }, 2500)
 }
 
-whr_embed(129759, { detail: 'titles', base: 'jobs', zoom: 'country', grouping: 'none' })
+window.whr_embed(129759, { detail: 'titles', base: 'jobs', zoom: 'country', grouping: 'none' })
 
 const copyBtnImg = () => {
   const img = document.createElement('img')
