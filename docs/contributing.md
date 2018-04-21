@@ -7,6 +7,16 @@ React TimeProvider is open source and contributions are always welcome. In this 
 If you're having trouble please don't hesitate to open Issue [here](https://github.com/QuiqUpLTD/react-time-provider/issues)
 Issues are opened with an [Issue Template](https://github.com/QuiqUpLTD/react-time-provider/blob/master/ISSUE_TEMPLATE.md), filling in the fields helps replicate and identify the problem.
 
+## Documentation
+react-time-provider uses MKDocs to generate documentation and is hosted on readthedocs.org. To document your changes you'll need to install MKDocs with:
+```
+pip install mkdocs
+```
+After which you'll be able to run:
+```bash
+mkdocs serve
+```
+From there you can edit the files in `docs/` and should the the results served at `http://127.0.0.1:8000`
 
 ### Dependencies
 To develop for react-time-provider you'll need:
@@ -17,14 +27,14 @@ To develop for react-time-provider you'll need:
 ### Installation
 
 Navigate to the directory you'd like to clone react-time-provider and run:
-```
+```bash
 git clone https://github.com/QuiqUpLTD/react-time-provider.git
 cd react-time-provider
 yarn link
 ```
 
 The above code will clone the repo, install the required `node_modules` and link the module. Next navigation to your project's directory and run:
-```
+```bash
 yarn link "@quiqupltd/react-time-provider"
 ```
 
