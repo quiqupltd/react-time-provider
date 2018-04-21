@@ -1,6 +1,6 @@
 {
   "name": "@quiqupltd/react-time-provider",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.3",
   "description": "A configurable timer utility to pass time props to your components via Context API at a set interval.",
   "author": {
     "name": "Quiqup",
@@ -15,9 +15,11 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
+    "lint": "eslint src",
     "test": "jest src/ --coverage",
     "build": "rollup -c",
     "start": "rollup -c -w",
+    "precommit": "lint-staged",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
@@ -127,6 +129,9 @@
     "testRegex": "src/.*\\.spec\\.js$"
   },
   "eslintConfig": {
+    "env": {
+      "jest": true
+    },
     "extends": [
       "standard",
       "standard-react",
